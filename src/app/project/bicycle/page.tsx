@@ -3,12 +3,7 @@
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-
-type ProjectProps = {
-  params: { slug: string };
-};
 
 const project = {
   title: "Bicycle Project",
@@ -20,7 +15,7 @@ const project = {
   github: "",
 };
 
-export default function ProjectDetails({ params }: ProjectProps) {
+export default function ProjectDetails() {
   const router = useRouter();
 
   return (
@@ -71,7 +66,7 @@ export default function ProjectDetails({ params }: ProjectProps) {
             <p className="text-muted-foreground text-justify">
                 Bicycle Project is a project that uses yolov10 AI package to detect parking slot
                 situations. If there is a bicycle parked in the parking space, our application will
-                display occupied, otherwise it will display empty. Therefore, the AI function is responsible for transmitting the accurate parking slot situation to the company's SQL server, I have almost completed this function.
+                display occupied, otherwise it will display empty. Therefore, the AI function is responsible for transmitting the accurate parking slot situation to the company SQL server, I have almost completed this function.
             </p>
             <p>
                 This functionality needs to be performed by two functions, the first function is to set

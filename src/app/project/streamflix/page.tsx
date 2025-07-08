@@ -3,7 +3,6 @@
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -23,9 +22,7 @@ const admin = [
     "/images/streamflix10.png",
   ];
 
-type ProjectProps = {
-  params: { slug: string };
-};
+
 
 const project = {
   title: "Streamflix",
@@ -37,11 +34,10 @@ const project = {
   github: "",
 };
 
-export default function ProjectDetails({ params }: ProjectProps) {
+export default function ProjectDetails() {
   const router = useRouter();
   const [userCurrent, setUserCurrent] = useState(0);
   const [adminCurrent, setAdminCurrent] = useState(0);
-  const total = images.length;
 
   const nextUserSlide = () => {
     setUserCurrent((prev: number) => (prev + 1) % images.length);

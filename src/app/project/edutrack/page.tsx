@@ -3,14 +3,9 @@
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-
-type ProjectProps = {
-  params: { slug: string };
-};
 
 const project = {
   title: "Education Management Application [Extracurricular]",
@@ -22,7 +17,7 @@ const project = {
   github: "",
 };
 
-export default function ProjectDetails({ params }: ProjectProps) {
+export default function ProjectDetails() {
   const router = useRouter();
 
   return (

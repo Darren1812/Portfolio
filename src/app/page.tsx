@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Phone, Github, Linkedin, Mail, ExternalLink, GraduationCap, Code, Database, Globe, Smartphone } from "lucide-react"
+import { Phone, Linkedin, Mail, GraduationCap, Code } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -19,7 +19,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: "Bicycle Project",
-      description: "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the company's SQL Server.",
+      description: "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the company&apos;s SQL Server.",
       technologies: ["PYTHON AI", "SQL", "JUPYTER", "YOLOv10"],
       github: "#",
       demo: "/project/bicycle", 
@@ -27,7 +27,7 @@ export default function Portfolio() {
     },
     {
       title: "Face Recognition",
-      description: "I designed a face recognition system with two versions: one using a PC webcam and the other using an IP camera. In the webcam version, the system captures live video, compares detected faces with those stored in an SQL database, and displays a green box and the user's name upon a successful match. For the IP camera version, I connected the camera using an RTSP link but found the processing too heavy for the camera. To solve this, I split the function into two parts: the IP camera captures screenshots, and the computer performs face recognition.",
+      description: "I designed a face recognition system with two versions: one using a PC webcam and the other using an IP camera. In the webcam version, the system captures live video, compares detected faces with those stored in an SQL database, and displays a green box and the user&apos;s name upon a successful match. For the IP camera version, I connected the camera using an RTSP link but found the processing too heavy for the camera. To solve this, I split the function into two parts: the IP camera captures screenshots, and the computer performs face recognition.",
       technologies: ["PYTHON AI", "SQL", "IP Camera", "Web Cam"],
       github: "#",
       demo: "/project/facerecognition", 
@@ -114,7 +114,7 @@ export default function Portfolio() {
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl" style={{ marginTop: "70px" , marginBottom: "50px" }}>
-              Hello, I'm <br></br><span className="text-primary">Darren Wong Chyn Chen</span>
+              Hello, I&apos;m <br></br><span className="text-primary">Darren Wong Chyn Chen</span>
             </h1>
             <p className="mx-auto max-w-[600px] text-muted-foreground text-lg md:text-xl" style={{ fontSize: "18px" }}>
               Fresh Graduate Software Engineer passionate about creating innovative solutions and building impactful
@@ -145,13 +145,13 @@ export default function Portfolio() {
             <CardContent className="p-8">
               <div className="space-y-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  Hi, I'm Darren Wong, a passionate and detail-oriented Software Engineering graduate from Asia Pacific University. I enjoy building modern, user-focused applications — from responsive web platforms to interactive mobile apps.
+                  Hi, I&apos;m Darren Wong, a passionate and detail-oriented Software Engineering graduate from Asia Pacific University. I enjoy building modern, user-focused applications — from responsive web platforms to interactive mobile apps.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  During my studies and internship, I gained hands-on experience in full-stack development, cloud deployment, and AI integration. I've worked with tools and frameworks like Flutter, Next.js, ASP.NET, and AWS, and I love seeing applications come to life — step by step — through clean, functional code.               
+                  During my studies and internship, I gained hands-on experience in full-stack development, cloud deployment, and AI integration. I&apos;ve worked with tools and frameworks like Flutter, Next.js, ASP.NET, and AWS, and I love seeing applications come to life — step by step — through clean, functional code.               
                 </p>
                 <p>
-                  I'm especially interested in frontend design, mobile app development, and creating seamless user experiences. I'm always eager to learn, experiment with new technologies, and contribute to real-world solutions that make a difference.
+                  I&apos;m especially interested in frontend design, mobile app development, and creating seamless user experiences. I&apos;m always eager to learn, experiment with new technologies, and contribute to real-world solutions that make a difference.
                 </p>
                 <div className="flex items-center space-x-4 pt-4">
                   <div className="flex items-center space-x-2">
@@ -250,41 +250,31 @@ export default function Portfolio() {
           className="text-4xl font-extrabold tracking-tight text-center text-gray-900 mb-16"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         >
-          Technical Skills
+          Skills & Technologies
         </motion.h2>
 
-        <div className="grid grid-cols-1 gap-10">
-          {Object.entries(skills).map(([category, skillList], index) => (
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {Object.entries(skills).map(([category, skillList]) => (
             <motion.div
-              key={index}
-              className="w-full rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-transform hover:scale-[1.02] p-8"
+              key={category}
               variants={fadeUp}
               initial="hidden"
               whileInView="show"
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: true }}
+              className="card p-6 bg-white rounded-lg shadow-md border border-gray-200"
             >
-              <div className="flex items-center justify-center mb-6">
-                {category === "Skill Set" && (
-                  <Code className="h-6 w-6 text-indigo-600 mr-2" />
-                )}
-                <h3 className="text-2xl font-semibold text-gray-800">{category}</h3>
-              </div>
-              <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent mb-6" />
-              <div className="flex flex-wrap justify-center gap-3">
+              <h3 className="text-xl font-bold mb-4 text-gray-800 flex items-center">
+                <Code className="mr-3 h-6 w-6 text-primary" />
+                {category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
                 {skillList.map((skill, skillIndex) => (
-                  <motion.span
-                    key={skillIndex}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: skillIndex * 0.05 }}
-                    viewport={{ once: false }}
-                    className="px-4 py-1.5 text-sm font-medium rounded-full border border-indigo-200 text-indigo-700 bg-indigo-50 hover:bg-indigo-100 transition-colors"
-                  >
+                  <Badge key={skillIndex} variant="secondary">
                     {skill}
-                  </motion.span>
+                  </Badge>
                 ))}
               </div>
             </motion.div>
@@ -294,45 +284,47 @@ export default function Portfolio() {
     </section>
 
       {/* Contact Section */}
-      <section id="contact" className="container py-24 bg-muted/50">
-        <div className="mx-auto max-w-2xl text-center" style={{marginTop: 120, marginBottom: 120}}> 
+      <section id="contact" className="container py-24 bg-gray-900 text-white">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tighter mb-8">Get In Touch</h2>
           <p className="text-muted-foreground mb-8 text-lg">
-            I'm currently looking for new opportunities and would love to hear from you. Whether you have a question or
+            I&apos;m currently looking for new opportunities and would love to hear from you. Whether you have a question or
             just want to say hi, feel free to reach out!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" asChild>
-            <Link href="mailto:darrenwong512@gmail.com">
-              <Mail className="mr-2 h-4 w-4" />
-              Send Email
+          <div className="flex justify-center space-x-6">
+            <Link
+              href="tel:+60182600299"
+              className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
+            >
+              <Phone className="h-8 w-8" />
+              <span className="text-sm">+60 18-260 0299</span>
             </Link>
-          </Button>
-
-          <Button variant="outline" size="lg" asChild>
-            <Link href="https://www.linkedin.com/in/darren-wong-5a6b2a247/" target="_blank">
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
+            <Link
+              href="mailto:darrenwongchynchen@gmail.com"
+              className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
+            >
+              <Mail className="h-8 w-8" />
+              <span className="text-sm">darrenwongchynchen@gmail.com</span>
             </Link>
-          </Button>
-
-          <Button variant="secondary" size="lg" asChild>
-            <Link href="tel:+601133321237">
-              <Phone className="mr-2 h-4 w-4" />
-              Call Now
+            <Link
+              href="https://www.linkedin.com/in/darrenwcc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
+            >
+              <Linkedin className="h-8 w-8" />
+              <span className="text-sm">LinkedIn</span>
             </Link>
-          </Button>
           </div>
-          <p className="mt-5">Phone Number : +601133321237</p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-8">
-        <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2025 Darren Wong Chyn Chen.</p>
+      <footer className="bg-gray-950 py-6 text-center text-sm text-gray-400">
+        <div className="container">
+          <p>&copy; {new Date().getFullYear()} Darren Wong Chyn Chen. All rights reserved.</p>
         </div>
       </footer>
     </div>
-  )
+  );
 }
