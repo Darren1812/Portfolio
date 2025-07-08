@@ -84,7 +84,7 @@ export default function ProjectDetails() {
             <p className="text-center my-5">Few sample output</p>
             <h2 className="text-2xl font-semibold mt-10">Second Version</h2>
             <p className="text-justify">
-              The second version implements the face recognition function using an IP camera. When I first received this task, I tried connecting the IP camera and discovered it required an RTSP link. After successfully connecting it, I attempted to execute my face recognition code directly on the camera. However, the process was too heavy for the camera to handle.
+              The second version implements the face recognition function using an IP camera. When I first received this task, I tried connecting the IP camera and discovered it required an RTSP link. After successfully connecting it, I attempted to execute my face recognition code directly on the IP camera. However, the process was too heavy for the camera to handle.
               <br />
               <br />
               So, I divided the function into two parts: one for taking screenshots and the other for face recognition.

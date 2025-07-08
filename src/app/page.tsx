@@ -19,7 +19,7 @@ export default function Portfolio() {
   const projects = [
     {
       title: "Bicycle Project",
-      description: "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the company&apos;s SQL Server.",
+      description: "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the company SQL Server.",
       technologies: ["PYTHON AI", "SQL", "JUPYTER", "YOLOv10"],
       github: "#",
       demo: "/project/bicycle", 
@@ -27,7 +27,7 @@ export default function Portfolio() {
     },
     {
       title: "Face Recognition",
-      description: "I designed a face recognition system with two versions: one using a PC webcam and the other using an IP camera. In the webcam version, the system captures live video, compares detected faces with those stored in an SQL database, and displays a green box and the user&apos;s name upon a successful match. For the IP camera version, I connected the camera using an RTSP link but found the processing too heavy for the camera. To solve this, I split the function into two parts: the IP camera captures screenshots, and the computer performs face recognition.",
+      description: "I developed a face recognition system in two versions: one using a PC webcam and the other using an IP camera. In the webcam version, the system captures live video, detects faces, compares them with entries in an SQL database, and displays a green box with the user's name upon a successful match. For the IP camera version, I connected the device via an RTSP link. Since real-time processing was too heavy for the camera, I split the functionality into two parts: the IP camera captures screenshots, while the computer handles face recognition.",
       technologies: ["PYTHON AI", "SQL", "IP Camera", "Web Cam"],
       github: "#",
       demo: "/project/facerecognition", 
@@ -244,45 +244,51 @@ export default function Portfolio() {
 
 
       {/* Skills Section */}
-      <section id="skills" className="flex items-center justify-center min-h-screen py-24 bg-gradient-to-b from-white to-slate-50">
-      <div className="max-w-5xl w-full px-6">
-        <motion.h2
-          className="text-4xl font-extrabold tracking-tight text-center text-gray-900 mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          Skills & Technologies
-        </motion.h2>
+      <section
+        id="skills"
+        className="flex items-center justify-center min-h-screen py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+      >
+        <div className="w-full">
+          <motion.h2
+            className="text-4xl font-bold tracking-tight text-center text-white mb-20"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Skills & Technologies
+          </motion.h2>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-y-12 sm:grid-cols-2 lg:grid-cols-1 sm:gap-x-6 lg:gap-x-24 mx-auto w-full max-w-6xl px-4">
           {Object.entries(skills).map(([category, skillList]) => (
-            <motion.div
-              key={category}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              className="card p-6 bg-white rounded-lg shadow-md border border-gray-200"
-            >
-              <h3 className="text-xl font-bold mb-4 text-gray-800 flex items-center">
-                <Code className="mr-3 h-6 w-6 text-primary" />
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skillList.map((skill, skillIndex) => (
-                  <Badge key={skillIndex} variant="secondary">
-                    {skill}
-                  </Badge>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+              <motion.div
+                key={category}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="px-8 py-6 rounded-2xl bg-gradient-to-br from-gray-700/40 to-gray-600/20 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <h3 className="text-2xl font-semibold tracking-wide mb-5 text-white flex items-center justify-center text-center">
+                  <Code className="mr-3 h-6 w-6 text-primary" />
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {skillList.map((skill, skillIndex) => (
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className="text-sm px-3 py-1.5 rounded-full bg-white/10 text-white hover:scale-105 transition-transform"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-
+      </section>
       {/* Contact Section */}
       <section id="contact" className="container py-24 bg-gray-900 text-white">
         <div className="mx-auto max-w-3xl text-center">
@@ -293,21 +299,21 @@ export default function Portfolio() {
           </p>
           <div className="flex justify-center space-x-6">
             <Link
-              href="tel:+60182600299"
+              href="tel:+601133321237"
               className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-8 w-8" />
-              <span className="text-sm">+60 18-260 0299</span>
+              <span className="text-sm">+60 11-3332-1237</span>
             </Link>
             <Link
-              href="mailto:darrenwongchynchen@gmail.com"
+              href="mailto: darrenwong512@gmail.com"
               className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
             >
               <Mail className="h-8 w-8" />
-              <span className="text-sm">darrenwongchynchen@gmail.com</span>
+              <span className="text-sm">darrenwong512@gmail.com</span>
             </Link>
             <Link
-              href="https://www.linkedin.com/in/darrenwcc/"
+              href="https://www.linkedin.com/in/darren-wong-5a6b2a247/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex flex-col items-center space-y-2 text-primary-foreground hover:text-primary transition-colors"
@@ -322,7 +328,7 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="bg-gray-950 py-6 text-center text-sm text-gray-400">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Darren Wong Chyn Chen. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Darren Wong Chyn Chen.</p>
         </div>
       </footer>
     </div>

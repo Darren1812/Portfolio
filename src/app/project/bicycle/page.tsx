@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 const project = {
   title: "Bicycle Project",
   description:
-    "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the company's SQL Server.",
+    "Bicycle Project uses the YOLOv10 AI package to detect bicycle parking slot occupancy. If a bicycle is present, the slot is marked as occupied; otherwise, it is empty. The AI system sends real-time parking status updates to the companys SQL Server.",
   technologies: ["PYTHON AI", "SQL", "JUPYTER", "YOLOv10"],
   image: "/images/bicycle.jpeg",
   demo: "",
